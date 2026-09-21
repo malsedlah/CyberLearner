@@ -1,0 +1,2 @@
+-- CyberLearner seed data placeholder.
+-- Initial Management account, topics and questions will be added after the schema is finalized.

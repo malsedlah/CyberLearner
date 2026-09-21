@@ -1,0 +1,2 @@
+-- CyberLearner database schema placeholder.
+-- The nine project tables and relationships will be created during the database stage.

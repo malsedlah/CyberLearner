@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+bin/
+obj/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Local database generated files
+*.mdf
+*.ldf
+
+# NuGet
+packages/
+*.nupkg
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,7 +1,7 @@
 # CyberLearner — Final System Specification
 
 ## 1. Purpose and authority
-This document is the single source of truth for the CyberLearner implementation. Every team member must follow it. Do not add, remove, rename, or materially change a role, workflow, business rule, database table, or major feature without team agreement and an update to this document.
+This document defines the final CyberLearner system scope. Every team member must follow it together with **MEMBER_RESPONSIBILITIES.md** and **DATABASE_CONTRACT.md**. DATABASE_CONTRACT.md is authoritative for exact table names, column names, SQL data types, fixed database values, keys, constraints, and relationships. Do not add, remove, rename, or materially change a role, workflow, business rule, database table/column, or major feature without team agreement and corresponding documentation updates.
 
 CyberLearner is a web-based cybersecurity learning and certification system developed for the APU Web Applications assignment using ASP.NET Web Forms on .NET Framework 4.7.2.
 
@@ -129,6 +129,8 @@ Forgot Password → enter registered email → generate temporary verification c
 The temporary code should expire and may be kept in Session. Displaying the code on screen is a prototype limitation; real email delivery is outside the required scope unless the group later approves it.
 
 ## 9. Database — fixed nine-table design
+
+**Database naming is locked.** All members must use the exact table and field names below. SQL types, nullability, defaults, allowed values, PK/FK constraints and database naming conventions are fixed in `DATABASE_CONTRACT.md`; do not invent alternatives in an individual branch.
 
 ### 9.1 Users
 Purpose: all Learner and Management accounts.
@@ -406,4 +408,4 @@ CyberLearner is complete when:
 - The group can explain how each major feature and database relationship works.
 
 ## 19. Scope-control rule
-When implementation details are unclear, first check this specification and MEMBER_RESPONSIBILITIES.md. If neither document defines the detail, choose the smallest implementation consistent with the assignment and existing architecture, or ask the group before introducing a new feature/table/workflow. Do not silently expand scope.
+When implementation details are unclear, first check this specification, `MEMBER_RESPONSIBILITIES.md`, and `DATABASE_CONTRACT.md`. For database questions, `DATABASE_CONTRACT.md` controls exact names/types/values. If the documents do not define a required detail, choose the smallest implementation consistent with the assignment and existing architecture, or ask the group before introducing a new feature/table/column/workflow. Do not silently expand scope.

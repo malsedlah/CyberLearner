@@ -1,7 +1,7 @@
 # CyberLearner — Member Responsibilities and Scope Boundaries
 
 ## 1. Purpose
-This document tells each member exactly what they own. Read **SYSTEM_SPECIFICATION.md first**. That file defines the final system and business rules; this file divides the implementation work.
+This document tells each member exactly what they own. Read **SYSTEM_SPECIFICATION.md** and **DATABASE_CONTRACT.md** before coding. SYSTEM_SPECIFICATION.md defines the final system/business rules; DATABASE_CONTRACT.md fixes the exact database names, types, values, keys and relationships; this file divides implementation work.
 
 Every member must:
 - Work on their assigned branch.
@@ -9,7 +9,8 @@ Every member must:
 - Test their work before requesting merge to main.
 - Commit meaningful changes with clear messages.
 - Avoid rewriting another member's files without coordination.
-- Follow the fixed database/business rules in SYSTEM_SPECIFICATION.md.
+- Follow the fixed business rules in SYSTEM_SPECIFICATION.md.
+- Follow DATABASE_CONTRACT.md exactly for table names, column names, SQL types, fixed values and relationships. Never rename database content in an individual branch.
 - Ask the group before changing a shared file in a way that affects others.
 
 Branch mapping:
@@ -311,7 +312,16 @@ Management:
 
 ---
 
-## 6. Shared files — coordination required
+## 6. Database contract rule
+All four members share one database contract even though tables are divided by responsibility.
+
+- Use the exact schema in `DATABASE_CONTRACT.md`.
+- Do not rename a table, column, role/status/pass value, PK or FK.
+- Do not add a new table or column independently.
+- If a schema change is genuinely required, coordinate it and update the contract on `main` before implementation.
+- C# model properties and SQL commands must remain compatible with the contract.
+
+## 7. Shared files — coordination required
 These are not owned exclusively by one member:
 - `Data/DatabaseHelper.cs`
 - `Web.config`
@@ -332,7 +342,7 @@ Rules:
 5. Resolve shared-file conflicts deliberately; do not simply overwrite another member's changes.
 6. Database schema changes require group agreement because all four sections depend on it.
 
-## 7. Integration boundaries
+## 8. Integration boundaries
 Expected dependency chain:
 
 Member 1 Authentication/User → Member 2 Learning/Quiz → Member 3 Exam/Results → Member 4 Certificate
@@ -346,7 +356,7 @@ Additional controlled links:
 
 Members may call another member's completed service/data contract, but should not rewrite that member's internal implementation merely for convenience.
 
-## 8. Git workflow
+## 9. Git workflow
 For normal development:
 1. Switch to your assigned branch.
 2. Sync required approved changes from main before starting a new task.
@@ -360,9 +370,10 @@ For normal development:
 
 Do not use main as a personal development branch.
 
-## 9. Scope-stop checklist for every member or coding agent
+## 10. Scope-stop checklist for every member or coding agent
 Before adding anything, ask:
 - Is this required by SYSTEM_SPECIFICATION.md?
+- Does it follow DATABASE_CONTRACT.md exactly?
 - Is it part of my assigned responsibility?
 - Does an existing table/service/page already cover it?
 - Would it change another member's contract?
@@ -372,7 +383,7 @@ Before adding anything, ask:
 
 If a proposed change expands scope or affects another member, stop and coordinate first.
 
-## 10. Global completion expectation
+## 11. Global completion expectation
 A member's work is not complete merely because the page opens. Their section must:
 - Use the real local database where required.
 - Enforce relevant authorization.

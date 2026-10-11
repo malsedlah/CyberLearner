@@ -141,6 +141,12 @@ namespace CyberLearner.Learner
 
             int attemptId = examService.SaveAttempt(SessionHelper.GetUserID(), score, passStatus);
 
+            if (passStatus == "Pass")
+            {
+                CertificateService certificateService = new CertificateService();
+                certificateService.IssueCertificate(SessionHelper.GetUserID());
+            }
+
             Session.Remove("ExamQuestions");
             Session.Remove("ExamAnswers");
             Session.Remove("ExamGuidelinesAccepted");

@@ -1,2 +1,39 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Learner.Master.cs" Inherits="CyberLearner.LearnerMaster" %>
-<!DOCTYPE html><html lang="en"><head runat="server"><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title><%: Page.Title %> - CyberLearner</title><link href="<%= ResolveUrl("~/Styles/site.css") %>" rel="stylesheet" /></head><body><form id="form1" runat="server"><nav><!-- Learner navigation later. --></nav><main><asp:ContentPlaceHolder ID="MainContent" runat="server" /></main></form><script src="<%= ResolveUrl("~/Scripts/site.js") %>"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%: Page.Title %> - CyberLearner</title>
+    <link href="<%= ResolveUrl("~/Styles/site.css") %>" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header class="site-header">
+            <div class="container header-row">
+                <a class="brand" href="<%= ResolveUrl("~/Learner/Dashboard.aspx") %>">Cyber<span>Learner</span></a>
+                <button type="button" class="nav-toggle" onclick="toggleMenu()">Menu</button>
+                <nav id="mainNav" class="main-nav">
+                    <a href="<%= ResolveUrl("~/Learner/Dashboard.aspx") %>">Dashboard</a>
+                    <a href="<%= ResolveUrl("~/Learner/Topics.aspx") %>">Course</a>
+                    <a href="<%= ResolveUrl("~/Learner/ExamAccess.aspx") %>">Exam</a>
+                    <a href="<%= ResolveUrl("~/Learner/Results.aspx") %>">Results</a>
+                    <a href="<%= ResolveUrl("~/Learner/Requests.aspx") %>">Requests</a>
+                    <a href="<%= ResolveUrl("~/Learner/Certificate.aspx") %>">Certificate</a>
+                    <a href="<%= ResolveUrl("~/Learner/Profile.aspx") %>">Profile</a>
+                    <a href="<%= ResolveUrl("~/Logout.aspx") %>">Logout</a>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+            <p class="welcome-text">Logged in as <asp:Label ID="lblUser" runat="server" /></p>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+        <footer class="site-footer">
+            <p>&copy; <%: DateTime.Now.Year %> CyberLearner - Cybersecurity Fundamentals</p>
+        </footer>
+    </form>
+    <script src="<%= ResolveUrl("~/Scripts/site.js") %>"></script>
+</body>
+</html>

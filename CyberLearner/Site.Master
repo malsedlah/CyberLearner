@@ -10,8 +10,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header><!-- Public navigation will be added later. --></header>
-        <main><asp:ContentPlaceHolder ID="MainContent" runat="server" /></main>
+        <header class="site-header">
+            <div class="container header-row">
+                <a class="brand" href="<%= ResolveUrl("~/Default.aspx") %>">Cyber<span>Learner</span></a>
+                <button type="button" class="nav-toggle" onclick="toggleMenu()">Menu</button>
+                <nav id="mainNav" class="main-nav">
+                    <a href="<%= ResolveUrl("~/Default.aspx") %>">Home</a>
+                    <a href="<%= ResolveUrl("~/Register.aspx") %>">Register</a>
+                    <a href="<%= ResolveUrl("~/Login.aspx") %>">Login</a>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+        <footer class="site-footer">
+            <p>&copy; <%: DateTime.Now.Year %> CyberLearner - Cybersecurity Fundamentals</p>
+        </footer>
     </form>
     <script src="<%= ResolveUrl("~/Scripts/site.js") %>"></script>
 </body>

@@ -1,7 +1,14 @@
+using System;
+
 namespace CyberLearner.Models
 {
     public class ExamAttempt
     {
-        // Properties will be added when the database schema is implemented.
+        public int ExamAttemptID { get; set; }
+        public int UserID { get; set; }
+        public int AttemptNumber { get; set; }
+        public decimal Score { get; set; }
+        public string PassStatus { get; set; }
+        public DateTime AttemptDate { get; set; }
     }
 }

@@ -20,3 +20,9 @@ packages/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Publish profiles (contain passwords)
+*.pubxml
+*.pubxml.user
+*.publishsettings
+*.publishSettings

@@ -35,6 +35,18 @@ namespace CyberLearner.Services
                 new SqlParameter("@PasswordHash", PasswordHelper.HashPassword(password)));
         }
 
+        public void CreateLearner(string fullName, string email, string username, string passwordHash)
+        {
+            string sql = "INSERT INTO Users (FullName, Email, Username, PasswordHash, Role, AccountStatus) " +
+                         "VALUES (@FullName, @Email, @Username, @PasswordHash, 'Learner', 'Active')";
+
+            DatabaseHelper.Execute(sql,
+                new SqlParameter("@FullName", fullName),
+                new SqlParameter("@Email", email),
+                new SqlParameter("@Username", username),
+                new SqlParameter("@PasswordHash", passwordHash));
+        }
+
         public User Login(string username, string password)
         {
             string sql = "SELECT * FROM Users WHERE Username = @Username OR Email = @Username";

@@ -359,6 +359,7 @@
     <Compile Include="Security\SessionHelper.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CertificateService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\ExamService.cs" />
     <Compile Include="Services\LearningService.cs" />
     <Compile Include="Services\QuizService.cs" />

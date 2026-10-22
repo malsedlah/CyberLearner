@@ -26,3 +26,4 @@ Thumbs.db
 *.pubxml.user
 *.publishsettings
 *.publishSettings
+Secrets.config
